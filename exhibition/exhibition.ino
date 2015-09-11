@@ -27,7 +27,7 @@ void loop () {
 
  if (Serial.available()) {
   score = Serial.read()-'0';
-  score = random(10) + 10*score;
+  score = random(-5, 5) + 10*score;
   for(byte x=0;x<101;x++){ 
     strip.setBrightness(100);
     strip.setPixelColor(x, 0, 255, 0); 
