@@ -31,19 +31,19 @@ while True:
         print "Turn on 1 light"
         for socket in sockets_1:
             switch_on(socket)
-            print socket
+            print "socket %d" % socket
 
     if score >= 3 and score <= 4:
         print "Turn on 2 lights"
         for socket in sockets_2:
             switch_on(socket)
-            print socket
+            print "socket %d" % socket
 
     if score >= 5 and score <= 7:
         print "Turn on 3 lights"
         for socket in sockets_3:
             switch_on(socket)
-            print socket
+            print "socket %d" % socket
 
     if score >= 8:
         print "Turn on 4 lights"
