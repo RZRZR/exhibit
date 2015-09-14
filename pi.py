@@ -10,21 +10,22 @@ ser.write("1")
 sleep(1)
 
 sockets = [1, 2, 3, 4]
-random.shuffle(sockets) # sockets is now e.g [4, 2, 1, 3]
 
-sockets_1 = sockets[:1] # sockets_1 is now [4]
-
-random.shuffle(sockets] # sockets is now e.g [2, 4, 3, 1]
-sockets_2 = sockets[:2] # sockets_2 is now [2, 4]
-
-random.shuffle(sockets] # sockets is now e.g [3, 1, 2, 4]
-sockets_3 = sockets[:3] # sockets_3 is now [3, 1, 2]
 
 while True:
     scoreString = input("Enter number:  ")
     ser.write("%s" % scoreString)
     score = int(float(scoreString))
     print score
+    
+    random.shuffle(sockets) # sockets is now e.g [4, 2, 1, 3]
+    sockets_1 = sockets[:1] # sockets_1 is now [4]
+    
+    random.shuffle(sockets] # sockets is now e.g [2, 4, 3, 1]
+    sockets_2 = sockets[:2] # sockets_2 is now [2, 4]
+    
+    random.shuffle(sockets] # sockets is now e.g [3, 1, 2, 4]
+    sockets_3 = sockets[:3] # sockets_3 is now [3, 1, 2]
 
     if score <= 2:
         print "Turn on 1 light"
