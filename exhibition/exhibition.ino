@@ -5,6 +5,12 @@
 #define NUMPIXELS 101
 int score = 1;
 
+int digit1 = 8;
+int digit2 = 8;
+int digit3 = 8;
+int digit4 = 8;
+
+
 Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DATAPIN, CLOCKPIN);
 
 void setup() {
@@ -29,7 +35,9 @@ void loop () {
     digit2 = Serial.read() - 48;
     digit3 = Serial.read() - 48;
   
-    score =  (digit1 * 100) + (digit2 * 10) + digit3
+    score =  (digit1 * 100) + (digit2 * 10) + digit3;
+    Serial.print(score);
+  
 
   for(byte x=0;x<101;x++){ 
     strip.setBrightness(100);
@@ -42,7 +50,6 @@ void loop () {
       }
       delay(10);
     }
+
 }
-
-
 
