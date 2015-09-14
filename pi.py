@@ -10,7 +10,7 @@ ser.write("1")
 sleep(1)
 
 sockets = [1, 2, 3, 4]
-random.shuffle(sockets] # sockets is now e.g [4, 2, 1, 3]
+random.shuffle(sockets) # sockets is now e.g [4, 2, 1, 3]
 
 sockets_1 = sockets[:1] # sockets_1 is now [4]
 
