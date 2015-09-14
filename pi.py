@@ -1,46 +1,53 @@
-## import the serial library
 import serial
 from time import sleep
 from energenie import switch_on, switch_off
+import random
 
-## Boolean variable that will represent
-## whether or not the arduino is connected
 connected = False
-
-## open the serial port that your ardiono
-## is connected to.
 
 ser = serial.Serial("/dev/ttyACM0", 9600, timeout=3.0)
 ser.write("1")
 sleep(1)
+
+sockets = list(range(4))
+random.shuffle(sockets)
+
+
+threeSockets = sockets.pop()
+twoSockets = threeSockets.pop()
+oneSockets = twoSocket.pop()
+
 
 while True:
     scoreString = input("Enter number:  ")
         ser.write("%s" % scoreString)
         score = int(float(scoreString))
         print score
+
         if score <= 2:
-            switch_on(1)
-                print "Turn on 1 light"
+            print "Turn on 1 light"
+                for socket in onesockets:
+                switch_on(socket)
+                print socket
+            
         if score >= 3 and score <= 4:
-            switch_on(1)
-                switch_on(2)
-                print "Turn on 2 lights"
+            print "Turn on 2 lights"
+            for socket in twosockets:
+                switch_on(socket)
+                print socket
+
         if score >= 5 and score <= 7:
-            switch_on(1)
-                switch_on(2)
-                switch_on(3)
-                print "Turn on 3 lights"
+            print "Turn on 3 lights"
+            for socket in threesockets:
+                switch_on(socket)
+                print socket
+
         if score >= 8:
-            switch_on(1)
-                switch_on(2)
-                switch_on(3)
-                switch_on(4)
-                print "Turn on 4 lights"
+            print "Turn on 4 lights"
+            switch_on(0)
 
 
 
 
 ## close the port and end the program
 ser.close()
-
