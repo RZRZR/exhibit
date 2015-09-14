@@ -29,27 +29,29 @@ for(byte x=0;x<101;x++){
 
 
 void loop () {
-
+  // wait for serial. When it has received 3 digits.. 
   if (Serial.available() >= 3) {
-    digit1 = Serial.read() - 48;
+    digit1 = Serial.read() - 48; // convert first digit
     digit2 = Serial.read() - 48;
     digit3 = Serial.read() - 48;
   
-    score =  (digit1 * 100) + (digit2 * 10) + digit3;
+    score =  (digit1 * 100) + (digit2 * 10) + digit3;  // put the digits back together again.
     Serial.print(score);
   
+  // would be nice to have a screensaver pattern.
+  
 
-  for(byte x=0;x<101;x++){ 
-    strip.setBrightness(100);
-    strip.setPixelColor(x, 0, 255, 0); 
-    strip.show();
+    for(byte x=0;x<101;x++){    // For all the pixels, turn them RED
+      strip.setBrightness(100);
+      strip.setPixelColor(x, 0, 255, 0); 
+      strip.show();
     }
-   for(byte x=0;x<score;x++){     
+    for(byte x=0;x<score;x++){ // For the score-number turn them green    
       strip.setPixelColor(x, 255, 0, 0);   
       strip.show();
-      }
-      delay(10);
     }
+    delay(10);
+  }
 
 }
 
