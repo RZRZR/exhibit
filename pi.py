@@ -20,7 +20,7 @@ while True:
     ser.write(str(scorePrint))
     score = int(float(scoreString))
     print score
-
+    switch_off(0)
     random.shuffle(sockets) # sockets is now e.g [4, 2, 1, 3]
     sockets_1 = sockets[:1] # sockets_1 is now [4]
 
@@ -40,17 +40,21 @@ while True:
         print "Turn on 2 lights"
         for socket in sockets_2:
             switch_on(socket)
+            sleep(1)
             print "socket %d" % socket
 
     if score >= 51 and score <= 75:
         print "Turn on 3 lights"
         for socket in sockets_3:
             switch_on(socket)
+            sleep(1)
             print "socket %d" % socket
 
     if score >= 76:
         print "Turn on 4 lights"
         switch_on(0)
+    sleep(15)
+    switch_on(0)
 
 
 
