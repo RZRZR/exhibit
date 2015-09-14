@@ -14,6 +14,7 @@ sockets = [1, 2, 3, 4]
 
 while True:
     scoreString = input("Enter number:  ")
+    "{0:0=3d}".format(scoreString)
     ser.write(str(scoreString))
     score = int(float(scoreString))
     print score
