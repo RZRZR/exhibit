@@ -30,25 +30,25 @@ while True:
     random.shuffle(sockets) # sockets is now e.g [3, 1, 2, 4]
     sockets_3 = sockets[:3] # sockets_3 is now [3, 1, 2]
 
-    if score <= 2:
+    if score <= 25:
         print "Turn on 1 light"
         for socket in sockets_1:
             switch_on(socket)
             print "socket %d" % socket
 
-    if score >= 3 and score <= 4:
+    if score >= 26 and score <= 50:
         print "Turn on 2 lights"
         for socket in sockets_2:
             switch_on(socket)
             print "socket %d" % socket
 
-    if score >= 5 and score <= 7:
+    if score >= 51 and score <= 75:
         print "Turn on 3 lights"
         for socket in sockets_3:
             switch_on(socket)
             print "socket %d" % socket
 
-    if score >= 8:
+    if score >= 76:
         print "Turn on 4 lights"
         switch_on(0)
 
