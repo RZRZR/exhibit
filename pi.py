@@ -21,10 +21,10 @@ while True:
     random.shuffle(sockets) # sockets is now e.g [4, 2, 1, 3]
     sockets_1 = sockets[:1] # sockets_1 is now [4]
     
-    random.shuffle(sockets] # sockets is now e.g [2, 4, 3, 1]
+    random.shuffle(sockets) # sockets is now e.g [2, 4, 3, 1]
     sockets_2 = sockets[:2] # sockets_2 is now [2, 4]
     
-    random.shuffle(sockets] # sockets is now e.g [3, 1, 2, 4]
+    random.shuffle(sockets) # sockets is now e.g [3, 1, 2, 4]
     sockets_3 = sockets[:3] # sockets_3 is now [3, 1, 2]
 
     if score <= 2:
