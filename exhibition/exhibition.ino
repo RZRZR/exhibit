@@ -5,10 +5,9 @@
 #define NUMPIXELS 101
 int score = 1;
 
-int digit1 = 8;
-int digit2 = 8;
-int digit3 = 8;
-int digit4 = 8;
+int digit1 = 0;
+int digit2 = 2;
+int digit3 = 2;
 
 
 Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DATAPIN, CLOCKPIN);
