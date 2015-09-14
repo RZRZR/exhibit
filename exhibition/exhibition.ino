@@ -24,10 +24,13 @@ for(byte x=0;x<101;x++){
 
 void loop () {
 
+  if (Serial.available() >= 3) {
+    digit1 = Serial.read() - 48;
+    digit2 = Serial.read() - 48;
+    digit3 = Serial.read() - 48;
+  
+    score =  (digit1 * 100) + (digit2 * 10) + digit3
 
- if (Serial.available()) {
-  score = Serial.read()-'0';
-  score = random(-5, 5) + 10*score;
   for(byte x=0;x<101;x++){ 
     strip.setBrightness(100);
     strip.setPixelColor(x, 0, 255, 0); 
