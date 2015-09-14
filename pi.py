@@ -26,7 +26,7 @@ while True:
 
         if score <= 2:
             print "Turn on 1 light"
-                for socket in onesockets:
+            for socket in onesockets:
                 switch_on(socket)
                 print socket
             
