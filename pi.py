@@ -18,17 +18,19 @@ sockets = [1, 2, 3, 4]
 def shuffle():
     random.shuffle(sockets) # sockets is now e.g [4, 2, 1, 3]
     sockets_1 = sockets[:1] # sockets_1 is now [4]
-
+    
     random.shuffle(sockets) # sockets is now e.g [2, 4, 3, 1]
     sockets_2 = sockets[:2] # sockets_2 is now [2, 4]
-
+    
     random.shuffle(sockets) # sockets is now e.g [3, 1, 2, 4]
     sockets_3 = sockets[:3] # sockets_3 is now [3, 1, 2]
-    
+
+    return;
+
 
 while True:
     
-    # Enter a number between 0 - 100 - turn it into a 3 digit number.    
+    # Enter a number between 0 - 100 - turn it into a 3 digit number.
     scoreString = input("Enter number:  ")
     scoreThreeDigit = "%03d" %scoreString
     print "input %s" %scoreThreeDigit
@@ -45,31 +47,31 @@ while True:
     # Print score as a int
     score = int(float(scoreString))
     print score
-
+    
     #
     shuffle()
-
-
+    
+    
     if score <= 25:
         print "Turn on 1 light"
         for socket in sockets_1:
             switch_on(socket)
             print "socket %d" % socket
 
-    if score >= 26 and score <= 50:
-        print "Turn on 2 lights"
+if score >= 26 and score <= 50:
+    print "Turn on 2 lights"
         for socket in sockets_2:
             switch_on(socket)
             print "socket %d" % socket
 
-    if score >= 51 and score <= 75:
-        print "Turn on 3 lights"
+if score >= 51 and score <= 75:
+    print "Turn on 3 lights"
         for socket in sockets_3:
             switch_on(socket)
             print "socket %d" % socket
 
-    if score >= 76:
-        print "Turn on 4 lights"
+if score >= 76:
+    print "Turn on 4 lights"
         switch_on(0)
     sleep(5)
 
