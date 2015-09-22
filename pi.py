@@ -3,51 +3,84 @@ from time import sleep
 from energenie import switch_on, switch_off
 import random
 
-connected = False
-
-ser = serial.Serial("/dev/ttyACM0", 9600, timeout=3.0)
+ser = serial.Serial("/dev/ttyUSB0", 9600, timeout=3.0) # Arduino controlling DOTSTAR
+ser2 = serial.Serial("/dev/ttyACM0", 9600) # Arduino reading 16 POTs
 ser.write("1")
+ser2.write("1")
 sleep(1)
 
-sockets = list(range(4))
-random.shuffle(sockets)
+sockets = [1, 2, 3, 4]
 
 
-threeSockets = sockets.pop()
-twoSockets = threeSockets.pop()
-oneSockets = twoSocket.pop()
 
 
 while True:
-    scoreString = input("Enter number:  ")
-        ser.write("%s" % scoreString)
-        score = int(float(scoreString))
-        print score
 
-        if score <= 2:
-            print "Turn on 1 light"
-            for socket in onesockets:
-                switch_on(socket)
-                print socket
-            
-        if score >= 3 and score <= 4:
-            print "Turn on 2 lights"
-            for socket in twosockets:
-                switch_on(socket)
-                print socket
+    # Enter a number between 0 - 100 - turn it into a 3 digit number.
+    #scoreString = input("Enter number:  ")
 
-        if score >= 5 and score <= 7:
-            print "Turn on 3 lights"
-            for socket in threesockets:
-                switch_on(socket)
-                print socket
+    # if button is pressed
 
-        if score >= 8:
-            print "Turn on 4 lights"
-            switch_on(0)
+    # Read score from Arduino 2
+
+    print "sending arduino 2"
+
+    ser2.write("1")
+    message = ser2.readline()
+    sleep(1)
+    print message
+
+    scoreString = message
+
+    scoreThreeDigit = "%03d" %scoreString
+    print "input %s" %scoreThreeDigit
 
 
+    print "sending to arduino 1"
 
+
+    # Send score to Arduino 1 as a 3 digit string
+    ser.write(str(scoreThreeDigit))
+
+    # Print score as a int
+    score = int(float(scoreString))
+    print score
+
+    #
+    random.shuffle(sockets) # sockets is now e.g [4, 2, 1, 3]
+    sockets_1 = sockets[:1] # sockets_1 is now [4]
+
+    random.shuffle(sockets) # sockets is now e.g [2, 4, 3, 1]
+    sockets_2 = sockets[:2] # sockets_2 is now [2, 4]
+
+    random.shuffle(sockets) # sockets is now e.g [3, 1, 2, 4]
+    sockets_3 = sockets[:3] # sockets_3 is now [3, 1, 2]
+
+
+    if score <= 25:
+        print "Turn on 1 light"
+        for socket in sockets_1:
+            switch_on(socket)
+            print "socket %d" % socket
+
+    if score >= 26 and score <= 50:
+        print "Turn on 2 lights"
+        for socket in sockets_2:
+            switch_on(socket)
+            print "socket %d" % socket
+
+    if score >= 51 and score <= 75:
+        print "Turn on 3 lights"
+        for socket in sockets_3:
+            switch_on(socket)
+            print "socket %d" % socket
+
+    if score >= 76:
+        print "Turn on 4 lights"
+        switch_on(0)
+        sleep(5)
+
+    sleep (2)
 
 ## close the port and end the program
 ser.close()
