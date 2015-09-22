@@ -20,7 +20,7 @@ while True:
 
     # Read score from Arduino 2
 
-    print "sending arduino 2"
+    print "reading input arduino "
 
     ser2.write("1")
     reading = ser2.readline()
@@ -31,7 +31,7 @@ while True:
     print "input: %s" %scoreThreeDigit
 
 
-    print "sending to arduino 1"
+    print "sending to output arduino"
 
 
     # Send score to Arduino 1 as a 3 digit string
