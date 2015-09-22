@@ -16,21 +16,21 @@ int analog14 = 14;
 int analog15 = 15;
 
 int val0 = 0;
-int val1 = 1;
-int val2 = 2;
-int val3 = 3;
-int val4 = 4;
-int val5 = 5;
-int val6 = 6;
-int val7 = 7;
-int val8 = 8;
-int val9 = 9;
-int val10 = 10;
-int val11 = 11;
-int val12 = 12;
-int val13 = 13;
-int val14 = 14;
-int val15 = 15;
+int val1 = 0;
+int val2 = 0;
+int val3 = 0;
+int val4 = 0;
+int val5 = 0;
+int val6 = 0;
+int val7 = 0;
+int val8 = 0;
+int val9 = 0;
+int val10 = 0;
+int val11 = 0;
+int val12 = 0;
+int val13 = 0;
+int val14 = 0;
+int val15 = 0;
 
 
 int score = 0;
